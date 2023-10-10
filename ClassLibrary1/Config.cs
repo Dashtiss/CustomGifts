@@ -17,24 +17,11 @@ namespace CustomGifts
         [Description("Debug")]
         public bool Debug { get; set; } = false;
 
-        [Description("Can gifts be Weapons")]
-        public bool CanGiftsBeWeapons { get; set; } = true;
-
         [Description("Can Gifts Be Items")]
         public bool CanGiftsBeItems { get; set; } = true;
 
         [Description("Can Gifts Be Ammo")]
         public bool CanGiftsBeAmmo { get; set; } = true;
-
-        [Description("Gift Weapons List. Must Be an itemType or there will be errors")]
-        public List<ItemType> WeaponsTypes { get; set; } = new List<ItemType>
-        {
-            ItemType.GunFSP9,
-            ItemType.GunCOM18,
-            ItemType.GunCOM15,
-            ItemType.GrenadeHE,
-            ItemType.GrenadeFlash,
-        };
         [Description("Gift Item List")]
         public List<ChanceList> ItemsTypes { get; set; } = new List<ChanceList>
         {
@@ -46,11 +33,6 @@ namespace CustomGifts
             new ChanceList
             {
                 Item=ItemType.Adrenaline,
-                Chance=100,
-            },
-            new ChanceList
-            {
-                Item=ItemType.Ammo9x19,
                 Chance=100,
             },
             new ChanceList
@@ -71,13 +53,33 @@ namespace CustomGifts
         };
 
         [Description("Gift Ammo List")]
-        public List<AmmoType> AmmoTypes { get; set; } = new List<AmmoType>
+        public List<ChanceList> AmmoTypes { get; set; } = new List<ChanceList>
             {
-                AmmoType.Nato9,
-                AmmoType.Nato556,
-                AmmoType.Nato762,
-                AmmoType.Ammo44Cal,
-                AmmoType.Ammo12Gauge,
+                new ChanceList
+                {
+                    AmmoType=AmmoType.Nato9,
+                    Chance=75,
+                },
+                new ChanceList
+                {
+                    AmmoType=AmmoType.Ammo44Cal,
+                    Chance=75
+                },
+                new ChanceList
+                {
+                    AmmoType=AmmoType.Nato556,
+                    Chance=50
+                },
+                new ChanceList
+                {
+                    AmmoType=AmmoType.Nato762,
+                    Chance=50
+                },
+                new ChanceList
+                {
+                    AmmoType=AmmoType.Ammo12Gauge,
+                    Chance=10
+                },
             };
 
     }

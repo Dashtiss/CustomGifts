@@ -1,70 +1,65 @@
+using CustomGifts.ConfigObjects;
 using Exiled.API.Enums;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CustomGifts.ConfigObjects;
+
 namespace CustomGifts
 {
     public class Gifts
     {
-        private Config config;
+        private readonly Config config;
+        private readonly Random random;
+
+        public Gifts(Config config)
+        {
+            this.config = config;
+            random = new Random();
+        }
+
         public ItemType GetRandomItem()
         {
-            Random random = new Random();
             List<ChanceList> itemTypes = config.ItemsTypes;
 
-            // Generate a random index within the range of the list
-            int randomIndex = random.Next(0, itemTypes.Count);
 
-            // Get the random ItemType from the list
-            ItemType randomItemType = itemTypes[randomIndex];
-            return randomItemType;
+            while (true)
+            {
+                int ChanceValue = random.Next(1, 101);
+
+                int randomIndex = random.Next(0, itemTypes.Count);
+                ItemType item = itemTypes[randomIndex].Item;
+                int Chance = itemTypes[randomIndex].Chance;
+                if (ChanceValue <= Chance)
+                {
+                    return item;
+                }
+                else
+                {
+                    continue;
+                }
+            }
         }
+
         public AmmoType GetRandomAmmo()
         {
-            System.Random random = new System.Random();
-            List<AmmoType> AmmoTypes = config.AmmoTypes;
-            // Create a Random object to generate random numbers
+            List<ChanceList> ammoTypes = config.AmmoTypes;
 
 
-            // Generate a random index within the range of the list
-            int randomIndex = random.Next(0, AmmoTypes.Count);
-
-            // Get the random ItemType from the list
-            AmmoType given = AmmoTypes[randomIndex];
-            return given;
-        }
-        public ItemType GetRandomWeapon()
-        {
-            System.Random random = new System.Random();
-            List<ItemType> itemTypes = config.ItemsTypes;
-
-            // Generate a random index within the range of the list
-            int randomIndex = random.Next(0, itemTypes.Count);
-
-            // Get the random ItemType from the list
-            ItemType given = itemTypes[randomIndex];
-            return given;
-        }
-        public string GetRandomGiftIdea()
-        {
-            Random random = new Random();
-            List<string> giftsideas = new List<string>()
+            while (true)
             {
-                "Items",
-                "Ammo",
-                "Weapons"
+                int ChanceValue = random.Next(1, 101);
 
-            };
-
-            // Generate a random index within the range of the list
-            int randomIndex = random.Next(0, giftsideas.Count);
-
-            // Get the random ItemType from the list
-            string randomItemType = giftsideas[randomIndex];
-            return randomItemType;
+                int randomIndex = random.Next(0, ammoTypes.Count);
+                AmmoType ammo = ammoTypes[randomIndex].AmmoType;
+                int Chance = ammoTypes[randomIndex].Chance;
+                if (ChanceValue <= Chance)
+                {
+                    return ammo;
+                }
+                else
+                {
+                    continue;
+                }
+            }
         }
     }
 }
