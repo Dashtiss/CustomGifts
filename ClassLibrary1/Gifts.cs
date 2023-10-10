@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using CustomGifts.ConfigObjects;
 namespace CustomGifts
 {
     public class Gifts
@@ -13,7 +13,7 @@ namespace CustomGifts
         public ItemType GetRandomItem()
         {
             Random random = new Random();
-            List<ItemType> itemTypes = config.ItemsTypes;
+            List<ChanceList> itemTypes = config.ItemsTypes;
 
             // Generate a random index within the range of the list
             int randomIndex = random.Next(0, itemTypes.Count);
