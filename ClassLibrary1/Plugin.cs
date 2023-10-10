@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +18,9 @@ namespace CustomGifts
 
         public override string Author => "Dashtiss";
 
+        public override Version Version => new Version(1, 0, 0);
+
+        public override Version RequiredExiledVersion => new Version(8, 2, 1);
         private PlayerEvents PlayerEvents;
         public override void OnEnabled()
         {
