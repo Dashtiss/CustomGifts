@@ -1,0 +1,5 @@
+- make ammo exeption if inventory is full
+- make config easier to edit
+- make everything optimized
+- make more gift ideas
+- publish
