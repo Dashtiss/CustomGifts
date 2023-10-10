@@ -97,7 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Plugin.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="ConfigObjects\ChanceList.cs" />
     <Compile Include="Gifts.cs" />
